@@ -1,0 +1,11 @@
+- name: Джон
+  surname: Доу
+  age: 20
+
+- name: Джейн
+  surname: Смит
+  age: 22
+
+- name: Эмили
+  surname: Джонсон
+  age: 21

@@ -1,0 +1,17 @@
+<students>
+    <student>
+        <name>Джон</name>
+        <surname>Доу</surname>
+        <age>20</age>
+    </student>
+    <student>
+        <name>Джейн</name>
+        <surname>Смит</surname>
+        <age>22</age>
+    </student>
+    <student>
+        <name>Эмили</name>
+        <surname>Джонсон</surname>
+        <age>21</age>
+    </student>
+</students>
