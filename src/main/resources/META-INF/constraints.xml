@@ -1,0 +1,50 @@
+<constraint-mappings xmlns="http://jboss.org/xml/ns/javax/validation/mapping"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping/validation-mapping-1.1.xsd"
+                     version="1.1">
+    <bean class="Lab4_Validation.Model.XmlValidatedComputer" ignore-annotations="false">
+        <field name="model">
+            <constraint annotation="jakarta.validation.constraints.NotNull">
+                <message>Модель не должна быть пустой</message>
+            </constraint>
+            <constraint annotation="jakarta.validation.constraints.Pattern">
+                <message>Модель может содержать только буквы, цифры, пробелы и дефисы</message>
+                <element name="regexp">^[A-Za-z0-9\\s-]+$</element>
+            </constraint>
+        </field>
+        <field name="processor">
+            <constraint annotation="jakarta.validation.constraints.NotNull">
+                <message>Процессор не должен быть пустым</message>
+            </constraint>
+            <constraint annotation="jakarta.validation.constraints.Pattern">
+                <message>Процессор может содержать только буквы, цифры и пробелы</message>
+                <element name="regexp">^[A-Za-z0-9\\s]+$</element>
+            </constraint>
+        </field>
+        <field name="ram">
+            <constraint annotation="jakarta.validation.constraints.Min">
+                <message>Объем ОЗУ должен быть больше 1 ГБ</message>
+                <element name="value">1</element>
+            </constraint>
+            <constraint annotation="jakarta.validation.constraints.Max">
+                <message>Объем ОЗУ не может превышать 128 ГБ</message>
+                <element name="value">128</element>
+            </constraint>
+        </field>
+        <field name="hdd">
+            <constraint annotation="jakarta.validation.constraints.Min">
+                <message>Объем жесткого диска должен быть больше 10 ГБ</message>
+                <element name="value">10</element>
+            </constraint>
+            <constraint annotation="jakarta.validation.constraints.Max">
+                <message>Объем жесткого диска не может превышать 5000 ГБ</message>
+                <element name="value">5000</element>
+            </constraint>
+        </field>
+        <field name="operatingSystem">
+            <constraint annotation="jakarta.validation.constraints.NotNull">
+                <message>Операционная система не должна быть пустой</message>
+            </constraint>
+        </field>
+    </bean>
+</constraint-mappings>
