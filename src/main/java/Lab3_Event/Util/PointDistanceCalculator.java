@@ -10,12 +10,20 @@ public class PointDistanceCalculator {
 
     // Обработка события добавления точки
     public void calculateDistanceOnAdd(@Observes @AddedPoint List<Point> pointList) {
+        if (pointList.size() < 3) {
+            System.out.println("Недостаточно точек для расчета (минимум 3).");
+            return;
+        }
         Point minDistancePoint = findPointWithMinDistance(pointList);
         System.out.println("Точка с минимальной суммой расстояний: " + minDistancePoint);
     }
 
     // Обработка события удаления точки
     public void calculateDistanceOnRemove(@Observes @RemovedPoint List<Point> pointList) {
+        if (pointList.size() < 3) {
+            System.out.println("Недостаточно точек для расчета (минимум 3).");
+            return;
+        }
         Point minDistancePoint = findPointWithMinDistance(pointList);
         System.out.println("Точка с минимальной суммой расстояний: " + minDistancePoint);
     }
