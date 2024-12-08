@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.Mapper.ComputerMapper">
+
+    <insert id="insertComputer" parameterType="com.example.Model.Computer">
+        INSERT INTO computers (brand, model, processor, ram, storage, is_available)
+        VALUES (#{brand}, #{model}, #{processor}, #{ram}, #{storage}, #{isAvailable})
+    </insert>
+
+    <update id="updateComputer" parameterType="com.example.Model.Computer">
+        UPDATE computers
+        SET brand = #{brand},
+            model = #{model},
+            processor = #{processor},
+            ram = #{ram},
+            storage = #{storage},
+            is_available = #{isAvailable}
+        WHERE id = #{id}
+    </update>
+
+    <resultMap id="ComputerResultMap" type="com.example.Model.Computer">
+        <result property="id" column="id"/>
+        <result property="brand" column="brand"/>
+        <result property="model" column="model"/>
+        <result property="processor" column="processor"/>
+        <result property="ram" column="ram"/>
+        <result property="storage" column="storage"/>
+        <result property="isAvailable" column="is_available"/>
+    </resultMap>
+
+    <select id="selectAllComputers" resultMap="ComputerResultMap">
+        SELECT * FROM computers
+    </select>
+
+    <delete id="deleteComputer" parameterType="Long">
+        DELETE FROM computers
+        WHERE id = #{id}
+    </delete>
+</mapper>
