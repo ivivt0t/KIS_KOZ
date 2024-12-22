@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Computer {
 
+    @JsonProperty("id")
     private Long id;
 
     @JsonProperty("brand")
